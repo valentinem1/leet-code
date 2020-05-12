@@ -12,16 +12,26 @@
 // make a charMap to store numbers as key and number of time in the array as value
 // iterate over the charMap and find the key that as a value of 1
 
-var singleNonDuplicate = function(nums) {
-    let charMap = {}
+// longer version
+// var singleNonDuplicate = function(nums) {
+//     let charMap = {}
     
-    for(let char of nums){
-        charMap[char] = charMap[char] + 1 || 1
-    }
+//     for(let char of nums){
+//         charMap[char] = charMap[char] + 1 || 1
+//     }
 
-    for(let char in charMap){
-        if(charMap[char] === 1){
-            return char
+//     for(let char in charMap){
+//         if(charMap[char] === 1){
+//             return char
+//         }
+//     }
+// };
+
+// faster version
+var singleNonDuplicate = function(nums) {
+    for(let i = 0; i<= nums.length; i+=2){
+        if(nums[i] !== nums[i+1]){
+            return nums[i]
         }
     }
 };
